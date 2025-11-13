@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: parsa
+  password: "Parsazare1378"
+  host: localhost
+
+development:
+  <<: *default
+  database: podcast_directory_development
+
+test:
+  <<: *default
+  database: podcast_directory_test
