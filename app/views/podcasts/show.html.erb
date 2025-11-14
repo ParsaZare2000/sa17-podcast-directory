@@ -1,0 +1,77 @@
+<div class="show-container">
+  <div class="show-card">
+
+    <h1 class="show-title"><%= @podcast.title %></h1>
+
+    <div class="meta-row">
+      <span class="category-tag <%= @podcast.category.parameterize %>">
+        <%= @podcast.category %>
+      </span>
+
+      <p class="show-host">Hosted by <strong><%= @podcast.host %></strong></p>
+    </div>
+
+    <div class="stats-box">
+      <div class="stat-item">
+        <span class="stat-number"><%= @podcast.episode_count %></span>
+        <span class="stat-label">Episodes</span>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-number"><%= @podcast.average_duration %> min</span>
+        <span class="stat-label">Avg Duration</span>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-number"><%= @podcast.episode_count * @podcast.average_duration %> min</span>
+        <span class="stat-label">Total Listening Time</span>
+      </div>
+    </div>
+
+    <!-- NEW SECTION: SUMMARY -->
+    <h2 class="desc-title">Summary</h2>
+    <p class="show-description">
+      <%= @podcast.description %>
+    </p>
+
+    <!-- NEW SECTION: WHAT YOU'LL LEARN -->
+    <h2 class="desc-title">What You'll Learn</h2>
+    <ul class="learn-list">
+      <li>Key insights from <%= @podcast.category %> genre</li>
+      <li>Improvement of critical thinking and understanding</li>
+      <li>Real-world knowledge explained in simple language</li>
+      <li>Host perspective and experience in every episode</li>
+    </ul>
+
+    <!-- NEW SECTION: WHY LISTEN -->
+    <h2 class="desc-title">Why This Podcast is Worth Listening</h2>
+    <p class="show-description">
+      This podcast offers a unique blend of engaging conversation, practical advice,
+      and thoughtful storytelling. Whether you want to learn something new,
+      grow personally, or simply enjoy content that is well-produced and meaningful,
+      this series delivers value in every episode.
+    </p>
+
+    <!-- NEW SECTION: TAGS -->
+    <h2 class="desc-title">Tags</h2>
+    <div class="tag-container">
+      <span class="tag">#<%= @podcast.category.downcase.gsub(" ", "_") %></span>
+      <span class="tag">#popular</span>
+      <span class="tag">#learning</span>
+      <span class="tag">#audio_series</span>
+      <span class="tag">#host_<%= @podcast.host.parameterize %></span>
+    </div>
+
+    <!-- NEW SECTION: TECHNICAL DETAILS -->
+    <h2 class="desc-title">Technical Details</h2>
+    <ul class="tech-list">
+      <li><strong>Created at:</strong> <%= @podcast.created_at.to_date %></li>
+      <li><strong>Last updated:</strong> <%= @podcast.updated_at.to_date %></li>
+      <li><strong>Category:</strong> <%= @podcast.category %></li>
+      <li><strong>Content rating:</strong> General Audience</li>
+    </ul>
+
+    <%= link_to "← Back to Directory", podcasts_path, class: "back-button" %>
+
+  </div>
+</div>

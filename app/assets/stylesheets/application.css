@@ -1,15 +1,286 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* RESET */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f6fa;
+  font-family: system-ui, sans-serif;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2d3436;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #636e72;
+}
+
+/* GRID OF CARDS */
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+.podcast-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+  transition: 0.2s ease;
+}
+
+.podcast-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* LINKS & TITLES */
+.podcast-title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.podcast-link {
+  text-decoration: none;
+  color: #0984e3;
+  font-weight: 700;
+}
+
+.podcast-link:hover {
+  text-decoration: underline;
+}
+
+/* CATEGORY BADGES */
+.category-tag {
+  padding: 4px 10px;
+  color: white;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 8px 0;
+  font-size: 0.8rem;
+}
+
+.category-tag.technology { background: #0984e3; }
+.category-tag.comedy { background: #e17055; }
+.category-tag.business { background: #00b894; }
+.category-tag.education { background: #6c5ce7; }
+.category-tag.true-crime { background: #d63031; }
+
+/* CARD TEXT */
+.podcast-info,
+.podcast-host,
+.description-preview {
+  color: #2d3436;
+  margin: 5px 0;
+}
+
+.details-button {
+  margin-top: 10px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 14px;
+  background: #0984e3;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.details-button:hover {
+  background: #0a63a8;
+}
+
+/* SHOW PAGE */
+.show-container {
+  max-width: 850px;
+  margin: auto;
+  padding: 20px;
+}
+
+.show-card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.show-title {
+  font-size: 2.2rem;
+  margin-bottom: 5px;
+  color: #2d3436;
+}
+
+.show-host {
+  margin-bottom: 15px;
+  color: #636e72;
+}
+
+/* STATS */
+.stats-box {
+  display: flex;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2d3436;
+}
+
+.stat-label {
+  color: #636e72;
+  font-size: 0.85rem;
+}
+
+/* DESCRIPTION SECTION */
+.desc-title {
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
+
+.show-description {
+  color: #2d3436;
+  line-height: 1.6;
+}
+
+/* BACK BUTTON */
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  color: #0984e3;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+/* EXTRA SECTIONS */
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 10px 0;
+}
+
+.learn-list li,
+.tech-list li {
+  margin-bottom: 6px;
+  color: #2d3436;
+}
+
+/* TAGS */
+.tag-container {
+  margin: 10px 0 20px 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #dfe6e9;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #2d3436;
+}
+
+/* ================== TABLE ================== */
+.podcast-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.podcast-table th {
+  background: #eef1f7;
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.podcast-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.podcast-table tr:hover {
+  background: #fafbff;
+}
+
+/* Table link override for blue link */
+.podcast-link {
+  color: #0057d9 !important;
+}
+
+/* DIVIDER */
+.divider {
+  margin: 35px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+/* ===================== NAVBAR ===================== */
+.navbar {
+  background: #ffffff;
+  padding: 14px 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #0984e3;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-item:hover {
+  color: #0a63b5;
+  text-decoration: underline;
+}
+
+.main-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px 25px;
+}

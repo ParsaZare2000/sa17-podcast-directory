@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PodcastDirectory</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Podcast Directory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <!-- ===================== NAVBAR ===================== -->
+   <nav class="navbar">
+  <div class="nav-container">
+
+    <a href="/" class="nav-logo">🎧 Podcasts</a>
+
+    <ul class="nav-links">
+      <li><%= link_to "Home", root_path, class: "nav-item" %></li>
+      <li><%= link_to "Directory", podcasts_path, class: "nav-item" %></li>
+      <li><%= link_to "About", about_path, class: "nav-item" %></li>
+    </ul>
+
+  </div>
+</nav>
+
+    <!-- ==================================================== -->
+
+    <div class="main-content">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
+

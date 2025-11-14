@@ -1,0 +1,57 @@
+<h1 class="page-title">Podcast Directory</h1>
+<p class="page-subtitle">Browse all podcasts below. Click a title to view full details.</p>
+
+<!-- ====================== TABLE REQUIRED BY ASSIGNMENT ======================= -->
+<table class="podcast-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Episodes</th>
+      <th>Host</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @podcasts.each do |podcast| %>
+      <tr>
+        <td><%= link_to podcast.title, podcast_path(podcast), class: "podcast-link" %></td>
+        <td><%= podcast.category %></td>
+        <td><%= podcast.episode_count %></td>
+        <td><%= podcast.host %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- ====================== OPTIONAL BEAUTIFUL CARDS ======================= -->
+<hr class="divider">
+
+<div class="podcast-grid">
+  <% @podcasts.each do |podcast| %>
+    <div class="podcast-card">
+      <h2 class="podcast-title">
+        <%= link_to podcast.title, podcast_path(podcast), class: "podcast-link" %>
+      </h2>
+
+      <span class="category-tag <%= podcast.category.parameterize %>">
+        <%= podcast.category %>
+      </span>
+
+      <p class="podcast-host">
+        Host: <strong><%= podcast.host %></strong>
+      </p>
+
+      <p class="podcast-info">
+        Episodes: <strong><%= podcast.episode_count %></strong> •  
+        Avg Duration: <strong><%= podcast.average_duration %> min</strong>
+      </p>
+
+      <p class="description-preview">
+        <%= truncate(podcast.description, length: 80) %>
+      </p>
+
+      <%= link_to "View Details →", podcast_path(podcast), class: "details-button" %>
+    </div>
+  <% end %>
+</div>
