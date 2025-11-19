@@ -1,9 +1,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: parsa
-  password: "Parsazare1378"
   host: localhost
+  username: postgres
+  password: "Parsazare1378"
+  pool: 5
 
 development:
   <<: *default
@@ -12,3 +13,7 @@ development:
 test:
   <<: *default
   database: podcast_directory_test
+
+production:
+  <<: *default
+  database: podcast_directory_production
