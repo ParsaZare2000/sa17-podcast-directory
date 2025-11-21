@@ -1,21 +1,15 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: podcast_directory_development
-  host: localhost
-  username: postgres
-  password: Parsazare1378
 
 test:
   <<: *default
   database: podcast_directory_test
-  host: localhost
-  username: postgres
-  password: Parsazare1378
 
 production:
   <<: *default
